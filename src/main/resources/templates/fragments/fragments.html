@@ -1,0 +1,56 @@
+<!-- Fragments -->
+
+<!-- Header - navigation bar -->
+<header th:fragment="cabecalho">
+    <nav class="navbar navbar-expand-lg justify-content-between navPrincipal">
+        
+        <!-- Logo da página. Ao clicar, redireciona para a página home -->
+        <div class="logo">
+            <a class="navbar-brand" th:href="@{/home}">
+                <img src="/./img/logo_chapeu.png" alt="home page logo icon" width="60px">
+            </a>
+        </div>
+        
+        <!-- Links da nav bar -->
+        <ul class="nav justify-content-start justify-content-center linksPrincipais">
+
+            <!-- Home -->
+            <a class="nav-item nav-link" th:href="@{/home}">
+                <i class="fa-solid fa-house menuIcon" style="color: #c2d4de;"></i>
+                <span>Home</span>
+            </a>
+
+            <!-- Cadastrar -->
+            <a class="nav-item nav-link" th:href="@{/cadastrar}">
+                <i class="fa-sharp fa-solid fa-user-plus menuIcon" style="color: #c2d4de;"></i>
+                <span>Cadastrar Aluno</span>
+            </a>
+
+
+            <!-- Pesquisar -->
+            <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#pesquisarNameModal">
+                <i class="fa-solid fa-magnifying-glass menuIcon" style="color: #c2d4de;"></i>
+                <span>Pesquisar Aluno</span>
+            </a>
+            
+
+            <!-- Sair -->
+            <a class="nav-item btn btn-danger" href="#">
+                <i class="fa-solid fa-circle-xmark menuIcon" style="color: #c2d4de;"></i>
+                <span>Sair</span>
+            </a>
+
+
+        </ul>
+    </nav>
+</header>
+
+
+
+<!-- footer -->
+<footer th:fragment="rodape">
+    <div class="footer">
+        <span>Todos os Direitos Reservados - 2020 &copy; Gabriel Freitas</span>
+    </div>
+</footer>
+

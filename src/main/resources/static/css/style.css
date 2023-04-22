@@ -1,0 +1,402 @@
+/* cores do projeto */
+
+:root{
+    --darkPurple: #392541;
+    --lightBlue:#C2D4DE;
+    --orange:#A94233;
+}
+
+/* Removendo toda margin and padding da página inteira */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    color: var(--lightBlue);
+}
+
+
+
+/* ********** NAVIGATION BAR ********** */
+
+.navPrincipal{
+    background-color: var(--darkPurple);
+    height: 58px;
+}
+
+.nav-item {
+    color: var(--lightPurple);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nav-item:hover{
+    color: #c28fd6b4
+}
+
+
+.linksPrincipais{
+    margin-right: 9px;
+}
+
+
+/* logo */
+.logo{
+    margin-left: 9px;
+}
+
+
+
+i.menuIcon{
+    margin-right: 8px;
+}
+
+
+
+
+/* ********** BODY - conteudo principal ********** */
+
+/* *********** Background - Anime school class  *********** */
+body{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.body-background{
+    height: 91.2%;
+    width: 100%;
+    padding: 30px;
+    background-image: url('https://e1.pxfuel.com/desktop-wallpaper/321/892/desktop-wallpaper-anime-school-hallway-anime-aethetic-school.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+
+/* sombra de fundo */
+.sombra-background{
+    height: 100%;
+    width: 100%;
+    border: 2px solid black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+    
+}
+
+
+/* conteudo inteiro */
+.main-content{
+    padding: 2%;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0px;
+    position: absolute;
+    z-index: 1;
+    margin-top: -120px;
+    
+}
+
+.main-content > h1{
+    color: white;
+    font-weight: bold;
+}
+
+
+
+/* alinhando os 2 botoes principais - "Cadastrar Aluno" e "Pesquisar Aluno" */
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 40px;
+    
+}
+
+
+.buttonPrincipal{
+    color: var(--lightPurple);
+    border: 4px solid var(--darkPurple);
+    border-radius: 7%;
+    padding: 14px 50px;
+    font-size: 1.5em;
+    font-weight: 600;
+    background-color: var(--orange);
+
+}
+
+.buttonPrincipal1{
+    margin-right: 4px;
+}
+
+.buttonPrincipal:hover{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.377);
+    border: 4px solid var(--darkPurple);
+    border-radius: 6%;
+    background-color: var(--darkPurple);
+    
+}
+
+/* footer */
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+footer > div.footer{
+    background-color: var(--darkPurple);
+    color: var(--lightBlue);
+    width: 100%;
+    height: 26px;
+    text-align: center;
+}
+
+
+/* responsividade */
+@media screen and (max-width: 667){
+    .button{
+        width:100%;
+    }
+}
+
+
+
+/**************************** Formulário de cadastro ****************************/
+.paginaInteira{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.conteudo_formulario{
+    width: 30%;
+    margin-top: 40px;
+}
+
+.formulario_cadastro_title{
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--darkPurple);
+}
+
+
+/* cada campo - label + input juntos */
+.form-group{
+    margin-top: 22px;
+}
+
+.form-group > label{
+    color: var(--darkPurple);
+}
+
+
+.form-control::placeholder{
+    color: var(--lightBlue);
+}
+
+
+/* campo - curso */
+.curso-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.cursoSelect{
+    max-width: 27%;
+    min-width: 150px;
+    color: var(--darkPurple);
+}
+
+.cursoOptions{
+    color: var(--darkPurple);
+}
+
+.cursoOptions:hover{
+    background-color: red;
+    color: red;
+}
+
+
+
+/* campo - matricula */
+.gerarMatriculaButton{
+    margin-top: 10px;
+}
+
+
+/* campos - status */
+.status-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.status-group > select{
+    max-width: 27%;
+    min-width: 150px;
+    color: var(--darkPurple);
+}
+
+option{
+    background-color: #e3d6e9;
+    color: var(--darkPurple);
+}
+
+
+
+/* Botões finais do formulário */
+.submitFormButtons{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.cadastrarButton{
+    margin-right: 17px;
+}
+
+
+
+/**************************** página para listar todos os alunos ****************************/
+.container_table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.container_table > h2, .table, th, td{
+    color: var(--darkPurple);
+}
+
+
+thead{
+    background-color: var(--darkPurple);
+}
+
+th{
+    color: var(--lightBlue);
+    text-align: left;
+}
+
+td{
+    text-align: left;
+}
+
+.th_id, .td_id{
+    text-align: center;
+}
+
+
+
+.th_acao{
+    text-align: center;
+}
+
+.td_acao{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.td_acao > a.buttonEditar{
+    margin-right: 15px;
+}
+
+
+/**************************** formulario para editar um aluno ****************************/
+.matriculaCinza{
+    background-color: rgba(170, 167, 167, 0.425);
+}
+
+
+.paginaInteira > form > h2{
+    font-weight: bold;
+}
+
+.paginaInteira > form > h2 > span{
+    color: var(--darkPurple);
+}
+
+
+/**************************** página de pesquisa ****************************/
+
+div.container h2.pesquisas_title{
+    color: var(--darkPurple);
+}
+
+div.pesquisasMainContent{
+    margin-top: 40px;
+}
+
+.cardTextColor{
+    color: var(--darkPurple);
+}
+
+
+div.card-body > a{
+    color: white;
+    font-weight: bold;
+    max-width: 60%;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column; 
+}
+
+div.card-body > div.cardButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+div.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+div.card{
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+
+div.alinharBotoesPesquisa{
+    margin-top: 23px;
+}
+
+div.card > a{
+    height: 50%;
+}
+
+.card-img-top{
+    height: 100%;
+}
+
+/* serach button */
+.searchInput{
+    max-width: 30%;
+    margin-right: 10px;
+}
+
+.formularioPesquisa{
+    display: flex;
+    flex-direction: row;
+
+}

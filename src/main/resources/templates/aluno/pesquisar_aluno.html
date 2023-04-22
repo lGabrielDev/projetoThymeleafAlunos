@@ -1,0 +1,115 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <!-- Bootstrap CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+
+    
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/e1b69a7947.js" crossorigin="anonymous"></script>
+    <!-- Google font - "Quicksand" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS external -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <title>Pesquisar alunos</title>
+</head>
+
+<body>
+    <!-- Navigation bar / cabeçalho -->
+    <div th:replace="~{./fragments/fragments.html :: cabecalho}"></div>
+
+    
+    
+    <!-- main content -->
+    <div class="container pesquisasMainContent">
+        <h2 class="pesquisas_title">Encontrar Alunos: </h2>
+
+        <hr>
+
+        
+         <!-- Search Button para procurar Alunos -->
+        <form action="#" method="post" class="formularioPesquisa" th:object="${aluno}">
+            <div class="input-group searchInput">
+                <input class="form-control" type="text" id="inputNameProcurado" placeholder="Digite o nome do aluno que deseja consultar..." th:field="*{name}">
+            </div>
+
+            <div class="searchButton">
+                <button type="button" class="btn btn-outline-info">Pesquisar</button>
+            </div>
+        </form>
+
+        <hr>
+
+
+
+        <!-- cards -->
+        <div class="cards">
+
+            <!-- Card - alunos ativos -->
+            <div class="card" style="width: 18rem;">
+                <a th:href="@{/alunos-ativos}">
+                    <img class="card-img-top" src="/img/alunos_ativos.jpg" alt="Card image">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title cardTextColor">Alunos ativos no sistema</h5>
+                    <p class="card-text cardTextColor">Busque por todos os alunos que estão ativos no sistema.</p>
+            
+                    <div class="cardButton alinharBotoesPesquisa">
+                        <a th:href="@{/alunos-ativos}" class="btn btn-outline-primary">Pesquisar</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Card - alunos inativos -->
+            <div class="card" style="width: 18rem;">
+                <a th:href="@{/alunos-inativos}">
+                    <img class="card-img-top" src="/img/alunos_inativos.jpg" alt="Card image">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title cardTextColor">Alunos inativos no sistema</h5>
+                    <p class="card-text cardTextColor">Busque por todos os alunos que estão inativos no sistema.</p>
+            
+                    <div class="cardButton alinharBotoesPesquisa">
+                        <a th:href="@{/alunos-inativos}" class="btn btn-outline-primary">Pesquisar</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Card - alunos cancelados -->
+            <div class="card" style="width: 18rem;">
+                <a th:href="@{/alunos-cancelados}">
+                    <img class="card-img-top" src="/img/alunos_cancelados.jpg" alt="Card image">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title cardTextColor">Alunos cancelados no sistema</h5>
+                    <p class="card-text cardTextColor">Busque por todos os alunos que estão cancelados no sistema.</p>
+            
+                    <div class="cardButton">
+                        <a th:href="@{/alunos-cancelados}" class="btn btn-outline-primary">Pesquisar</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    
+    <!-- footer -->
+    <footer th:replace="~{./fragments/fragments.html :: rodape}"></footer>
+
+
+    
+</body>
+
