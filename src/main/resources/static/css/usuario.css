@@ -1,0 +1,142 @@
+/* cores do projeto */
+:root{
+    --darkPurple: #392541;
+    --lightBlue:#C2D4DE;
+    --orange:#A94233;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* *******************************  Login Page  ******************************* */
+div.bodyTotal{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/./img/login-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+
+div.conteudo-principal{
+    min-height: 366px;
+    min-width: 529px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 2%;
+}
+
+div.conteudo-bruto{
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 277px;
+}
+
+
+
+
+
+div.conteudo-bruto .form-title,  form{
+    width: 100%;
+}
+
+
+div.form-group{
+    width: 100%;
+}
+
+
+
+form, .form-title{
+    padding: 0 40px;
+}
+
+
+.form-control{
+    width: 100%;
+    padding: 8px 8px;
+    margin-bottom: 9px;
+    border: 2px solid #39254169;
+
+}
+
+/* submit login button */
+.botoesLogin{
+    margin-top: 15px;
+    width: 100%;
+}
+
+
+.loginButton{
+    width: 100%;
+    background-color: #4527A0;
+    color: var(--lightBlue);
+}
+
+
+
+
+/* *******************************  Register User Page  ******************************* */
+
+.botoesCadastro{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cadastrarButton{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form-title-cadastrar{
+    margin-top: 28px;
+}
+
+.formularioCadastro{
+    margin-bottom: 40px;
+}
+
+/* buttons - cadastrar e voltar */
+
+.botoesCadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button.cadastrarButton{
+    width: 100%;
+    background-color: #4527A0;
+    color: var(--lightBlue);
+    border: 1px solid var(--darkPurple);
+}
+
+
+.voltarButton{
+    width: 50%;
+    background-color: #9882d8d2;
+    border: 1px solid var(--darkPurple);
+}
