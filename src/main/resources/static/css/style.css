@@ -400,3 +400,21 @@ div.card > a{
     flex-direction: row;
 
 }
+
+
+
+/**************************** MODAL ****************************/
+
+.modal-title{
+    color: var(--darkPurple);
+}
+
+
+
+
+/**************************** Mensagem de sucesso! ****************************/
+.mensagemSucesso{
+    color: var(--darkPurple);
+    align-self: flex-start;
+    margin-bottom: -20px;
+}

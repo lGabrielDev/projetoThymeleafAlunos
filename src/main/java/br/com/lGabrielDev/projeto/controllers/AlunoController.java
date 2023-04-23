@@ -29,7 +29,7 @@ public class AlunoController {
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar(Aluno a){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("./aluno/formulario_cadastro.html");
+        mv.setViewName("./aluno/cadastro/formulario_cadastro.html");
         mv.addObject("aluno", new Aluno());
         mv.addObject("cursos", Curso.values()); // todos as constants da enum "Curso"
         mv.addObject("statusBolado", Status.values()); // // todos as constants da enum "Status"
@@ -43,7 +43,7 @@ public class AlunoController {
 
         if(br.hasErrors()){
             ModelAndView mv = new ModelAndView();
-            mv.setViewName("./aluno/formulario_cadastro.html");
+            mv.setViewName("./aluno/cadastro/formulario_cadastro.html");
             mv.addObject("cursos", Curso.values()); // todos as constants da enum "Curso"
             mv.addObject("statusBolado", Status.values()); // // todos as constants da enum "Status"
             mv.addObject("turnos", Turno.values()); // // todos as constants da enum "Turno"
@@ -52,14 +52,33 @@ public class AlunoController {
         }
         else{
             this.as.cadastrar(a);
-
             ModelAndView mv = new ModelAndView();
-            mv.setViewName("redirect:/alunos");
-            System.out.println(a.toString());
+            mv.setViewName("redirect:/aluno-cadastro-com-sucesso");
             return mv;
         }
         
     }
+
+
+
+      //cadastrado com sucesso
+      @GetMapping("/aluno-cadastro-com-sucesso")
+      public ModelAndView CadastradoComSucesso(){
+          ModelAndView mv = new ModelAndView();
+          mv.setViewName("./aluno/cadastro/cadastroComSucesso.html");
+          mv.addObject("listaAlunos", this.as.listarTodos());
+          mv.addObject("aluno", new Aluno());
+          
+          return mv;
+      }
+  
+  
+  
+
+
+
+  
+
 
 
     // ************************ READ ************************
@@ -68,18 +87,25 @@ public class AlunoController {
     @GetMapping("/alunos")
     public ModelAndView listarAlunos(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("./aluno/listarTodosAlunos.html");
+        mv.setViewName("./aluno/cadastro/cadastroComSucesso.html");
         mv.addObject("listaAlunos", this.as.listarTodos());
+        mv.addObject("aluno", new Aluno());
+
         return mv;
     }
+
+
+    
+
 
 
     // READ - alunos ativos
     @GetMapping("/alunos-ativos")
     public ModelAndView listarAlunosAtivos(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("./aluno/listarAlunosAtivos.html");
+        mv.setViewName("./aluno/pesquisa/listarAlunosAtivos.html");
         mv.addObject("listaAlunos", this.as.listarAlunosAtivos());
+        mv.addObject("aluno", new Aluno());
         return mv;
     }
 
@@ -88,18 +114,24 @@ public class AlunoController {
     @GetMapping("/alunos-inativos")
     public ModelAndView listarAlunosInativos(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("./aluno/listarAlunosInativos.html");
+        mv.setViewName("./aluno/pesquisa/listarAlunosInativos.html");
         mv.addObject("listaAlunos", this.as.listarAlunosInativos());
+        mv.addObject("aluno", new Aluno());
         return mv;
     }
+
+
+  
+    
 
 
     // READ - alunos cancelados
     @GetMapping("/alunos-cancelados")
         public ModelAndView listarAlunosCancelados(){
             ModelAndView mv = new ModelAndView();
-            mv.setViewName("./aluno/listarAlunosCancelados.html");
+            mv.setViewName("./aluno/pesquisa/listarAlunosCancelados.html");
             mv.addObject("listaAlunos", this.as.listarAlunosCancelados());
+            mv.addObject("aluno", new Aluno());
             return mv;
         }
 
@@ -108,12 +140,15 @@ public class AlunoController {
     @GetMapping("/alunos/pesquisas")
     public ModelAndView AllPesquisas(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("./aluno/pesquisar_aluno.html");
+        mv.setViewName("./aluno/pesquisa/pesquisar_aluno.html");
         mv.addObject("aluno", new Aluno());
         return mv;
     }
 
 
+
+
+    
     // READ - alunos filtrando por "name"
     @PostMapping("/alunos/pesquisas")
     public ModelAndView recebendoName(Aluno a){
@@ -128,10 +163,18 @@ public class AlunoController {
         }
 
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("./aluno/listarAlunosPorName.html");
+        mv.setViewName("./aluno/pesquisa/listarAlunosPorName.html");
         mv.addObject("listaAlunos", alunos);
         return mv;
     }
+
+    
+
+
+
+
+
+
 
 
 
@@ -142,12 +185,12 @@ public class AlunoController {
 
         Optional<Aluno> aOptional = this.as.procurarAluno(id);
         if(aOptional.isEmpty()){
-            ModelAndView mv1 = new ModelAndView("redirect:/home");
+            ModelAndView mv1 = new ModelAndView("redirect:/aluno-atualizado-com-sucesso");
             return mv1;
         }
         else{
             ModelAndView mv2 = new ModelAndView();
-            mv2.setViewName("./aluno/formulario_editar.html");
+            mv2.setViewName("./aluno/editar/formulario_editar.html");
             mv2.addObject("aluno", aOptional.get());
             mv2.addObject("cursos", Curso.values()); // todos as constants da enum "Curso"
             mv2.addObject("statusBolado", Status.values()); // // todos as constants da enum "Status"
@@ -173,10 +216,37 @@ public class AlunoController {
             this.as.editar(id, alunoNovo);
 
             ModelAndView mv = new ModelAndView();
-            mv.setViewName("redirect:/alunos");
+            mv.setViewName("redirect:/aluno-atualizado-com-sucesso");
             return mv;
         }
     }
+
+
+
+
+    //update com sucesso
+    @GetMapping("/aluno-atualizado-com-sucesso")
+    public ModelAndView atualizadoComSucesso(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("./aluno/editar/editadoComSucesso.html");
+        mv.addObject("listaAlunos", this.as.listarTodos());
+        mv.addObject("aluno", new Aluno());
+        
+        return mv;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -190,7 +260,7 @@ public class AlunoController {
         if(deletadoComSucesso){
             this.as.deletar(id);
             ModelAndView mv = new ModelAndView();
-            mv.setViewName("redirect:/alunos");
+            mv.setViewName("redirect:/deletadoComSucesso");
             return mv;
         }
         else{
@@ -200,9 +270,22 @@ public class AlunoController {
         }
     }
 
-    
 
 
 
-    // ************************ CADASTRAR ************************
+    //delete com sucesso
+
+    @GetMapping("deletadoComSucesso")
+      public ModelAndView deletadoComSucesso(){
+          ModelAndView mv = new ModelAndView();
+          mv.setViewName("./aluno/deletar/deletadoComSucesso.html");
+          mv.addObject("listaAlunos", this.as.listarTodos());
+          mv.addObject("aluno", new Aluno());
+          
+          return mv;
+      }
+  
+  
 }
+
+
