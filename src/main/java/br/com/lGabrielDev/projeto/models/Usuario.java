@@ -1,24 +1,23 @@
 package br.com.lGabrielDev.projeto.models;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(
-    name = "tb_usuario"
-    //,
-    // uniqueConstraints = {
-    //         @UniqueConstraint(name="unique_name", columnNames = "name")                                                         
-    //         } 
-        )
+    name = "tb_usuario",
+    uniqueConstraints = {
+        @UniqueConstraint(name = "unique_name", columnNames = "name")
+    }
+ )
 
 public class Usuario {
     //attributes

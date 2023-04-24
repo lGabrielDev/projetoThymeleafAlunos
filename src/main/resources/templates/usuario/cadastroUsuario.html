@@ -33,6 +33,9 @@
                         <input type="text" class="form-control" id="nameInput"  placeholder="Username" th:field="*{name}" autocomplete="off">
                         <!-- div de validacao. Só vai aparecer se o erro acontecer. -->
                         <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}"  th:errors="*{name}"></div>
+
+                        <!-- div para mostrar "unique constraint". Essa div só vai aparecer se o objeto "mensagemErroUsername" existir aqui na view -->
+                        <div class="alert alert-danger" th:if="${mensagemErroUsername}" th:text="${mensagemErroUsername}"></div>
                     </div>
 
                     <div class="form-group">

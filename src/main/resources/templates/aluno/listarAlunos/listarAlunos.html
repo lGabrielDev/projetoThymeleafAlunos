@@ -19,7 +19,7 @@
     <!-- CSS external -->
     <link rel="stylesheet" href="/css/style.css">
     
-    <title>Lista de Alunos</title>
+    <title> Últimos alunos cadastrados: </title>
 </head>
 
 <body>
@@ -30,13 +30,20 @@
 
     <!-- todo o conteudo -->
     <div class="container container_table">
-        <h2>Últimos alunos cadastrados: </h2>
+        <h2 th:text="${listaTitle}">Alunos: </h2>
         
-        <!-- Mensagem ao usuário - "CADASTRADO COM SUCESSO" -->
-        <div class="alert alert-success mensagemSucesso" role="alert">
-            <span class="mensagemSucesso">Registro deletado com sucesso!</span>
-        </div>
-        
+
+        <!-- Div para mostrar mensagem de sucesso. Ex:
+        "Aluno cadastrado com sucesso!"
+        "Aluno alterado com sucesso!"
+        "Aluno deletado com sucesso com sucesso!"
+
+        Essas divs só vão aparecer se o objeto existir.
+        -->
+
+        <div class="alert alert-success mensagemSucesso" role="alert" th:if="${mensagemCadastradoComSucesso != nul}" th:text="${mensagemCadastradoComSucesso}"></div>
+        <div class="alert alert-success mensagemSucesso" role="alert" th:if="${mensagemEditadoComSucesso != null}" th:text="${mensagemEditadoComSucesso}"></div>
+        <div class="alert alert-success mensagemSucesso" role="alert" th:if="${mensagemDeletadoComSucesso != null}" th:text="${mensagemDeletadoComSucesso}"></div>
 
         <hr>
 
