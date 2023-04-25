@@ -41,6 +41,7 @@
                     <div class="form-group">
                         <input type="email" class="form-control" id="emailInput"  placeholder="Email" th:field="*{email}" autocomplete="off">
                         <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}"  th:errors="*{email}"></div>
+                        <div class="alert alert-danger" th:if="${mensagemErroEmail}" th:text="${mensagemErroEmail}"></div>
                     </div>
 
 

@@ -15,7 +15,8 @@ import jakarta.validation.constraints.Size;
 @Table(
     name = "tb_usuario",
     uniqueConstraints = {
-        @UniqueConstraint(name = "unique_name", columnNames = "name")
+        @UniqueConstraint(name = "unique_name", columnNames = "name"),
+        @UniqueConstraint(name = "unique_email", columnNames = "email")
     }
  )
 
