@@ -7,26 +7,32 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class UsuarioDetails implements UserDetails {
 
-    //attribute
+
+    //attributes
     private Usuario usuario;
 
-    //constructor
+    //constructors
     public UsuarioDetails(Usuario usuario){
         this.usuario = usuario;
     }
+
+
+    //getters and setters
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
 
 
     //methods implementados da interface "UserDetails"
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
-        
-    }
-
-
-    @Override
-    public String getUsername() {
-        return this.usuario.getName(); // vamos autenticar através do "name" do usuário
     }
 
     @Override
@@ -34,6 +40,10 @@ public class UsuarioDetails implements UserDetails {
         return this.usuario.getPassword();
     }
 
+    @Override
+    public String getUsername() {
+        return this.usuario.getName();
+    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -54,5 +64,8 @@ public class UsuarioDetails implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
+    
     
 }

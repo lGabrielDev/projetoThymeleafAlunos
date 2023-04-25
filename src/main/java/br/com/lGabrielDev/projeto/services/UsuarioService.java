@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.lGabrielDev.projeto.models.Usuario;
 import br.com.lGabrielDev.projeto.repositories.UsuarioRepository;
-import br.com.lGabrielDev.projeto.util.PasswordUtil;
+import br.com.lGabrielDev.projeto.util.CriptografarSenha;
 
 @Service
 public class UsuarioService {
@@ -21,11 +21,17 @@ public class UsuarioService {
     // *************** CADASTRAR *******************
     public void cadastrar(Usuario u){
         //criptografamos a senha do usuario em uma senha hash
-        String senhaHash = PasswordUtil.encoder(u.getPassword());
+        String senhaHash = CriptografarSenha.criptografar(u.getPassword());
+
+        //alteramos a senha do usuairo
         u.setPassword(senhaHash);
+
+        //salvamos no banco
         this.ur.save(u);
     }
 
+
+    
 
     // *************** READ *******************
 
