@@ -25,13 +25,17 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http
             .authorizeHttpRequests()
-                .requestMatchers("/").permitAll()
+                .requestMatchers("/css/**").permitAll()
+                .requestMatchers("/img/**").permitAll()                
+                .requestMatchers("/js/**").permitAll()
                 .requestMatchers("/usuario-cadastrar").permitAll()
                 .anyRequest().authenticated() // todas as outras rotas/requests vao ter permissao total
                 .and()
                 .csrf().disable()
 
                 .formLogin()
+                    .loginPage("/")
+                    .loginProcessingUrl("/login")
                     .defaultSuccessUrl("/home")
                     .permitAll(); // depois de logado, ele terá permissao total
 
@@ -41,11 +45,11 @@ public class SecurityConfig {
     }
 
 
+   
 
-    //decidimos a forma que será feito a autenticacao - vamos usar a "UserDetailsService"
+    //method para bater a senha digitada com a senha hash
     public void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.userDetailsService(uds)
-        .passwordEncoder(new BCryptPasswordEncoder());
+        auth.userDetailsService(uds).passwordEncoder(new BCryptPasswordEncoder());
     }
 
 
