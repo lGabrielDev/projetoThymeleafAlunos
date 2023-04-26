@@ -3,6 +3,7 @@ package br.com.lGabrielDev.projeto.controllers;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,28 +19,28 @@ import jakarta.validation.Valid;
 
 @Controller
 public class AlunoController {
-    //attributes
 
+    //attributes
     @Autowired
     private AlunoService as;
 
-    //requests
 
     // ************************ CREATE ************************
     @GetMapping("/cadastrar")
-    public ModelAndView cadastrar(Aluno a){
+    public ModelAndView cadastrar(Aluno a, Authentication authentication){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("./aluno/cadastro/formulario_cadastro.html");
         mv.addObject("aluno", new Aluno());
         mv.addObject("cursos", Curso.values()); // todos as constants da enum "Curso"
         mv.addObject("statusBolado", Status.values()); // // todos as constants da enum "Status"
         mv.addObject("turnos", Turno.values()); // // todos as constants da enum "Turno"
+        mv.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
         return mv;
     }
 
 
     @PostMapping("/cadastrar")
-    public ModelAndView receberCadastro(@Valid Aluno a, BindingResult br){
+    public ModelAndView receberCadastro(@Valid Aluno a, BindingResult br, Authentication authentication){
 
         if(br.hasErrors()){
             ModelAndView mv = new ModelAndView();
@@ -47,6 +48,7 @@ public class AlunoController {
             mv.addObject("cursos", Curso.values()); // todos as constants da enum "Curso"
             mv.addObject("statusBolado", Status.values()); // // todos as constants da enum "Status"
             mv.addObject("turnos", Turno.values()); // // todos as constants da enum "Turno"
+            mv.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
             
             return mv;
         }
@@ -57,10 +59,10 @@ public class AlunoController {
             mv.addObject("listaAlunos", this.as.listarTodos());
             mv.addObject("aluno", new Aluno());
             mv.addObject("mensagemCadastradoComSucesso", "Aluno cadastrado com sucesso!"); // mensagem de sucesso
+            mv.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
             return mv;
         }
     }
-
 
 
 
@@ -72,38 +74,42 @@ public class AlunoController {
     
     // READ ALL -- Todos os alunos
     @GetMapping("/alunos")
-    public ModelAndView listarAlunos(){
+    public ModelAndView listarAlunos(Authentication authentication){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("./aluno/listarAlunos/listarAlunos.html");
         mv.addObject("listaAlunos", this.as.listarTodos());
         mv.addObject("aluno", new Aluno());
         mv.addObject("listaTitle", "Alunos:"); // <h2> title
+        mv.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
         
         return mv;
     }
 
-    
+
 
     // READ - alunos ativos
     @GetMapping("/alunos-ativos")
-    public ModelAndView listarAlunosAtivos(){
+    public ModelAndView listarAlunosAtivos(Authentication authentication){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("./aluno/listarAlunos/listarAlunos.html");
         mv.addObject("listaAlunos", this.as.listarAlunosAtivos());
         mv.addObject("aluno", new Aluno());
         mv.addObject("listaTitle", "Alunos Ativos:"); // <h2> title
+        mv.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
         return mv;
     }
 
 
+
     // READ - alunos inativos
     @GetMapping("/alunos-inativos")
-    public ModelAndView listarAlunosInativos(){
+    public ModelAndView listarAlunosInativos(Authentication authentication){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("./aluno/listarAlunos/listarAlunos.html");
         mv.addObject("listaAlunos", this.as.listarAlunosInativos());
         mv.addObject("aluno", new Aluno());
         mv.addObject("listaTitle", "Alunos Inativos:"); // <h2> title
+        mv.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
         return mv;
     }
 
@@ -111,12 +117,13 @@ public class AlunoController {
 
     // READ - alunos cancelados
     @GetMapping("/alunos-cancelados")
-        public ModelAndView listarAlunosCancelados(){
+        public ModelAndView listarAlunosCancelados(Authentication authentication){
             ModelAndView mv = new ModelAndView();
             mv.setViewName("./aluno/listarAlunos/listarAlunos.html");
             mv.addObject("listaAlunos", this.as.listarAlunosCancelados());
             mv.addObject("aluno", new Aluno());
             mv.addObject("listaTitle", "Alunos Cancelados:"); // <h2> title
+            mv.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
             return mv;
         }
 
@@ -124,18 +131,18 @@ public class AlunoController {
 
     // READ - página de pesquisa. Aqui temos todas as opcoes de pesquisa - (alunos ativos, alunos inativos, alunos cancelados)
     @GetMapping("/alunos/pesquisas")
-    public ModelAndView AllPesquisas(){
+    public ModelAndView AllPesquisas(Authentication authentication){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("./aluno/pesquisa/pesquisar_aluno.html");
         mv.addObject("aluno", new Aluno());
+        mv.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
         return mv;
     }
-
 
     
     // READ - alunos filtrando por "name"
     @PostMapping("/alunos/pesquisas")
-    public ModelAndView recebendoName(Aluno a){
+    public ModelAndView recebendoName(Aluno a, Authentication authentication){
         List<Aluno> alunos;
 
         //se o usuario nao digitar nada, enviamos uma lista com todos os registros
@@ -151,6 +158,7 @@ public class AlunoController {
             mv.addObject("listaAlunos", alunos);
             mv.addObject("aluno", new Aluno());
             mv.addObject("listaTitle", "Alunos:"); // <h2> title
+            mv.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
         return mv;
     }
 
@@ -160,10 +168,9 @@ public class AlunoController {
 
 
 
-
     // ************************ UPDATE ************************
     @GetMapping("/alunos/{id}")
-    public ModelAndView editarAluno(@PathVariable(value = "id") Long id, Aluno a ){
+    public ModelAndView editarAluno(@PathVariable(value = "id") Long id, Aluno a, Authentication authentication){
 
         Optional<Aluno> aOptional = this.as.procurarAluno(id);
         if(aOptional.isEmpty()){
@@ -177,6 +184,7 @@ public class AlunoController {
             mv2.addObject("cursos", Curso.values()); // todos as constants da enum "Curso"
             mv2.addObject("statusBolado", Status.values()); // // todos as constants da enum "Status"
             mv2.addObject("turnos", Turno.values()); // // todos as constants da enum "Turno"
+            mv2.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
             return mv2;
         }  
     }
@@ -184,14 +192,15 @@ public class AlunoController {
 
 
     @PostMapping("/editar/{id}")
-    public ModelAndView editar(@PathVariable(value = "id") Long id , @Valid Aluno alunoNovo, BindingResult br){
+    public ModelAndView editar(@PathVariable(value = "id") Long id , @Valid Aluno alunoNovo, BindingResult br, Authentication authentication){
 
         if(br.hasErrors()){
             ModelAndView mv = new ModelAndView();
-            mv.setViewName("./aluno/formulario_editar.html");
+            mv.setViewName("./aluno/editar/formulario_editar.html");
             mv.addObject("cursos", Curso.values()); // todos as constants da enum "Curso"
             mv.addObject("statusBolado", Status.values()); // // todos as constants da enum "Status"
             mv.addObject("turnos", Turno.values()); // // todos as constants da enum "Turno"
+            mv.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
             return mv;
         }
         else{
@@ -202,6 +211,7 @@ public class AlunoController {
             mv.addObject("listaAlunos", this.as.listarTodos());
             mv.addObject("aluno", new Aluno());
             mv.addObject("mensagemEditadoComSucesso", "Aluno atualizado com sucesso!"); // objeto para usarmos como mensagem de sucesso
+            mv.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
             return mv;
         }
     }
@@ -211,12 +221,11 @@ public class AlunoController {
 
 
 
-
-
+    
 // ************************ DELETE ************************
 
     @GetMapping("/alunos/excluir/{id}")
-    public ModelAndView excluir(@PathVariable(value = "id") Long id){
+    public ModelAndView excluir(@PathVariable(value = "id") Long id, Authentication authentication){
         
        Boolean deletadoComSucesso = this.as.deletar(id);
 
@@ -227,6 +236,7 @@ public class AlunoController {
             mv.addObject("listaAlunos", this.as.listarTodos());
             mv.addObject("aluno", new Aluno());
             mv.addObject("mensagemDeletadoComSucesso", "Registro deletado com sucesso!"); // objeto para usarmos como mensagem de sucesso
+            mv.addObject("usuarioLogado", authentication); // Usuario autenticado - usado para mostrar o login do usuario logado na nav bar
             return mv;
         }
         else{

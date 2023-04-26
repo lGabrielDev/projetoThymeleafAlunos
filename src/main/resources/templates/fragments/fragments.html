@@ -8,10 +8,16 @@
         <!-- Logo da página. Ao clicar, redireciona para a página home -->
         <div class="logo">
             <a class="navbar-brand" th:href="@{/home}">
-                <img src="/./img/logo_chapeu.png" alt="home page logo icon" width="60px">
+                <img src="/./img/logo_chapeu.png" alt="home page logo icon" width="46px">
             </a>
         </div>
-        
+
+
+        <!-- Mensagem boas vindas! -->
+        <div class="divBoasVindas">
+            <h2 style="font-size: 16px;">Bem Vindo(a), <span th:text="${usuarioLogado.getPrincipal().getUsername()}"></span>!</h2>
+        </div>
+
         <!-- Links da nav bar -->
         <ul class="nav justify-content-start justify-content-center linksPrincipais">
 
@@ -27,21 +33,17 @@
                 <span>Cadastrar Aluno</span>
             </a>
 
-
             <!-- Pesquisar -->
             <button class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#modalPesquisarAluno">
                 <i class="fa-solid fa-magnifying-glass menuIcon" style="color: #c2d4de;"></i>
                 <span>Pesquisar Aluno</span>
             </button>
-
-            
-
+                        
             <!-- Sair -->
             <a class="nav-item btn btn-danger" th:href="@{/logout}">
                 <i class="fa-solid fa-circle-xmark menuIcon" style="color: #c2d4de;"></i>
                 <span>Sair</span>
             </a>
-
         </ul>
     </nav>
 </header>

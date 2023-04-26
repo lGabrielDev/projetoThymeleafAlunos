@@ -1,12 +1,11 @@
 /* cores do projeto */
-
 :root{
     --darkPurple: #392541;
     --lightBlue:#C2D4DE;
     --orange:#A94233;
 }
 
-/* Removendo toda margin and padding da página inteira */
+/* Remove all margin and padding */
 *{
     margin: 0;
     padding: 0;
@@ -15,12 +14,23 @@
 }
 
 
+/* BODY */
+body{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+
+
 
 /* ********** NAVIGATION BAR ********** */
-
 .navPrincipal{
     background-color: var(--darkPurple);
-    height: 58px;
+    height: 46px;
+    position: relative;
+    z-index: 1;
 }
 
 .nav-item {
@@ -36,6 +46,7 @@
 
 .linksPrincipais{
     margin-right: 9px;
+    font-size: 16px;
 }
 
 
@@ -51,26 +62,24 @@ i.menuIcon{
 }
 
 
+.divBoasVindas{
+    position: absolute;
+    top: 15px;
+    left: 72px;
+}
+
+
+
 
 
 /* ********** BODY - conteudo principal ********** */
-
-/* *********** Background - Anime school class  *********** */
-body{
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-}
-
 .body-background{
-    height: 91.2%;
+    height: 94%;
     width: 100%;
-    padding: 30px;
     background-image: url('https://e1.pxfuel.com/desktop-wallpaper/321/892/desktop-wallpaper-anime-school-hallway-anime-aethetic-school.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    position: relative;
     margin: 0;
     display: flex;
     flex-direction: row;
@@ -86,9 +95,6 @@ body{
     height: 100%;
     width: 100%;
     border: 2px solid black;
-    position: absolute;
-    top: 0;
-    left: 0;
     background: rgba(0,0,0,0.4);
     z-index: 1;
     
@@ -154,13 +160,16 @@ footer{
     position: absolute;
     bottom: 0;
     left: 0;
+    height: 3%;
+    z-index: 1;
+    width: 100%;
+    height: 26px;
 }
 
 footer > div.footer{
     background-color: var(--darkPurple);
     color: var(--lightBlue);
-    width: 100%;
-    height: 26px;
+    
     text-align: center;
 }
 
@@ -171,6 +180,7 @@ footer > div.footer{
         width:100%;
     }
 }
+
 
 
 
@@ -318,6 +328,8 @@ td{
 }
 
 
+
+
 /**************************** formulario para editar um aluno ****************************/
 .matriculaCinza{
     background-color: rgba(170, 167, 167, 0.425);
@@ -331,6 +343,8 @@ td{
 .paginaInteira > form > h2 > span{
     color: var(--darkPurple);
 }
+
+
 
 
 /**************************** página de pesquisa ****************************/
@@ -400,7 +414,6 @@ div.card > a{
     flex-direction: row;
 
 }
-
 
 
 /**************************** MODAL ****************************/

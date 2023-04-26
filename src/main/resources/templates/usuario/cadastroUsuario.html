@@ -1,63 +1,63 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/e1b69a7947.js" crossorigin="anonymous"></script>
-    <!-- Google font - "Quicksand" -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600;700&display=swap" rel="stylesheet">
-    <!-- CSS external -->
-    <link rel="stylesheet" href="/css/usuario.css">
-    
-    <title>Login</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/e1b69a7947.js" crossorigin="anonymous"></script>
+        <!-- Google font - "Quicksand" -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600;700&display=swap" rel="stylesheet">
+        <!-- CSS external -->
+        <link rel="stylesheet" href="/css/usuario.css">
+        <title>Login</title>
+    </head>
 
-<body>
-    <div class="bodyTotal">
-        <div class="conteudo-principal">
-            <div class="conteudo-bruto">
-                <div class="form-title form-title-cadastrar">
-                    <h2>Cadastro de usuário</h2>
-                    <p>Faça o cadastro do seu usuário no sistema.</p>
+    <body>
+        <div class="bodyTotal">
+            <div class="conteudo-principal">
+                <div class="conteudo-bruto">
+                    <div class="form-title form-title-cadastrar">
+                        <h2>Cadastro de usuário</h2>
+                        <p>Faça o cadastro do seu usuário no sistema.</p>
+                    </div>
+                    <!-- Formulário -->
+                    <form class="formulario formularioCadastro" action="/usuario-cadastrar" method="post" th:object="${usuario}">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="nameInput"  placeholder="Username" th:field="*{name}" autocomplete="off">
+                            <!-- div de validacao. Só vai aparecer se o erro acontecer. -->
+                            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}"  th:errors="*{name}"></div>
+                            <!-- div para mostrar a "unique constraint" error. Essa div só vai aparecer se o objeto "mensagemErroUsername" existir aqui na view -->
+                            <div class="alert alert-danger" th:if="${mensagemErroUsername}" th:text="${mensagemErroUsername}"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="emailInput"  placeholder="Email" th:field="*{email}" autocomplete="off">
+                            <!-- div de validacao. Só vai aparecer se o erro acontecer. -->
+                            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}"  th:errors="*{email}"></div>
+                            <!-- div para mostrar a "unique constraint" error. Essa div só vai aparecer se o objeto "mensagemErroEmail" existir aqui na view -->
+                            <div class="alert alert-danger" th:if="${mensagemErroEmail}" th:text="${mensagemErroEmail}"></div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="passwordInput"  placeholder="Password" th:field="*{password}">
+                            <!-- div de validacao. Só vai aparecer se o erro acontecer. -->
+                            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('password')}"  th:errors="*{password}"></div>
+                        </div>
+
+                        <div class="form-group botoesCadastro">
+                            <button type="submit" class="btn btn-success cadastrarButton">Cadastrar</button>
+                            <a th:href="@{/}" class="btn btn-success voltarButton">Voltar</a>
+                        </div>
+                    </form>
                 </div>
-                <!-- Formulário -->
-                <form class="formulario formularioCadastro" action="/usuario-cadastrar" method="post" th:object="${usuario}">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="nameInput"  placeholder="Username" th:field="*{name}" autocomplete="off">
-                        <!-- div de validacao. Só vai aparecer se o erro acontecer. -->
-                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}"  th:errors="*{name}"></div>
-
-                        <!-- div para mostrar "unique constraint". Essa div só vai aparecer se o objeto "mensagemErroUsername" existir aqui na view -->
-                        <div class="alert alert-danger" th:if="${mensagemErroUsername}" th:text="${mensagemErroUsername}"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="emailInput"  placeholder="Email" th:field="*{email}" autocomplete="off">
-                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}"  th:errors="*{email}"></div>
-                        <div class="alert alert-danger" th:if="${mensagemErroEmail}" th:text="${mensagemErroEmail}"></div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="passwordInput"  placeholder="Password" th:field="*{password}">
-                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('password')}"  th:errors="*{password}"></div>
-                    </div>
-
-                  
-                    <div class="form-group botoesCadastro">
-                        <button type="" class="btn btn-success cadastrarButton">Cadastrar</button>
-                        <a th:href="@{/}" class="btn btn-success voltarButton">Voltar</a>
-                    </div>
-                </form>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

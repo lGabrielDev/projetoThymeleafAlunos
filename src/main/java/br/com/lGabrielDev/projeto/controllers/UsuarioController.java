@@ -20,8 +20,7 @@ public class UsuarioController {
 
 
 
-
-    // ***********  Login page  ***********
+    // ********************** Login page  **********************
     @GetMapping("/")
     public ModelAndView loginPage(){
         ModelAndView mv = new ModelAndView();
@@ -31,8 +30,20 @@ public class UsuarioController {
 
 
 
+    // Login Page Error - Se o usuario errar o login e/ou password, ele será redirecionado para essa rota.
+    @GetMapping("/login-error")
+    public ModelAndView loginPageError(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("./usuario/login.html");
+        mv.addObject("mensagemErroLogin", "Usuário ou senha incorreto");
+        return mv;
+    }
 
-    // ***********  Register page  ***********
+
+
+
+
+    // **********************  Register page  **********************
     @GetMapping("/usuario-cadastrar")
     public ModelAndView registerPage(){
         ModelAndView mv = new ModelAndView();
@@ -68,7 +79,7 @@ public class UsuarioController {
             Optional<Usuario> uOptionalEmail =  this.us.findAlunoByEmail(novoUsuario.getEmail());
 
 
-            //se o "username" and "email" já existirem, mostramos as duas mensagem
+            //se o "username" and "email" já existirem, mostramos as duas mensagens
             if(uOptionalName.isPresent() && uOptionalEmail.isPresent()){
                 ModelAndView mv = new ModelAndView();
                 mv.setViewName("./usuario/cadastroUsuario.html");
@@ -98,6 +109,5 @@ public class UsuarioController {
             mv.setViewName("redirect:/");
             return mv;
         }
-       
     }
 }

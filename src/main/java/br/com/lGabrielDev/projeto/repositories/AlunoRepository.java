@@ -11,6 +11,7 @@ import br.com.lGabrielDev.projeto.models.Aluno;
 @Repository
 public interface AlunoRepository extends JpaRepository <Aluno, Long> {
 
+
     //queries
 
     //Querie - todos os alunos
@@ -22,10 +23,12 @@ public interface AlunoRepository extends JpaRepository <Aluno, Long> {
     @Query(value = "SELECT a FROM Aluno a WHERE status = 'ATIVO' ORDER BY id ASC")
     public List<Aluno> findAlunosAtivos();
 
+
     //Querie - alunos inativos
     @Query(value = "SELECT a FROM Aluno a WHERE status = 'INATIVO' ORDER BY id ASC")
     public List<Aluno> findAlunosInativos();
 
+    
     //Querie - alunos cancelados
     @Query(value = "SELECT a FROM Aluno a WHERE status = 'CANCELADO' ORDER BY id ASC")
     public List<Aluno> findAlunosCancelados();

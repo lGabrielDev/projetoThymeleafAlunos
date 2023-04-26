@@ -31,10 +31,9 @@ public class UsuarioService {
     }
 
 
-    
+
 
     // *************** READ *******************
-
     //procurar usuario pelo - "username"
     public Optional<Usuario> findAlunoByName(String name){
         Optional<Usuario> uOptional = this.ur.findByName(name);

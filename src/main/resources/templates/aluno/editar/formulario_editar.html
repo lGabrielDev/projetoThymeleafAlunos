@@ -1,109 +1,99 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/e1b69a7947.js" crossorigin="anonymous"></script>
-    <!-- Google font - "Quicksand" -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600;700&display=swap" rel="stylesheet">
-    <!-- CSS external -->
-    <link rel="stylesheet" href="/css/style.css">
-    
-    <title>Página de cadastro</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/e1b69a7947.js" crossorigin="anonymous"></script>
+        <!-- Google font - "Quicksand" -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600;700&display=swap" rel="stylesheet">
+        <!-- CSS external -->
+        <link rel="stylesheet" href="/css/style.css">
+        <title>Página de cadastro</title>
+    </head>
 
-<body>
-    <!-- Navigation bar / cabeçalho -->
-    <div th:replace="~{./fragments/fragments.html :: cabecalho}"></div>
+    <body>
+        <!-- Navigation bar / cabeçalho -->
+        <div th:replace="~{./fragments/fragments.html :: cabecalho}"></div>
 
+        <!-- Conteúdo principal -->
+        <div class="paginaInteira">
+            <form class="conteudo_formulario" th:action="@{/editar/{id} (id = ${aluno.getId()})}" method="post" th:object="${aluno}">
+                <h2 class="formulario_cadastro_title">Aluno #<span class="alunoTitle" th:text="${aluno.getId()}">dado</span> </h2>
 
-    <!-- Conteúdo principal -->
-    <div class="paginaInteira">
-        <form class="conteudo_formulario" th:action="@{/editar/{id} (id = ${aluno.getId()})}" method="post" th:object="${aluno}">
-
-            <h2 class="formulario_cadastro_title">Aluno #<span class="alunoTitle" th:text="${aluno.getId()}">dado</span> </h2>
-
-            <!-- Inputando o memso id -->
-
-            <!-- name -->
-            <div class="form-group">
-              <label for="nameInput">Name: </label>
-              <input type="text" class="form-control" th:field="*{name}" placeholder="Digite o nome do aluno">
-              <!-- div de validacao. Só vai aparecer se o erro acontecer. -->
-              <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}"  th:errors="*{name}"></div>
-            </div>
-
-            <!-- curso -->
-            <div class="form-group curso-group">
-                <label for="cursoInput">Curso: </label>
-                <select  id="cursoInput" class="cursoSelect" th:field="*{curso}">
-                    <option class="cursoOptions" th:each= " curso : ${cursos}"
-                            th:text="${curso}" th:value="${curso}"></option>
-                </select>
+                <!-- name -->
+                <div class="form-group">
+                <label for="nameInput">Name: </label>
+                <input type="text" class="form-control" th:field="*{name}" placeholder="Digite o nome do aluno">
                 <!-- div de validacao. Só vai aparecer se o erro acontecer. -->
-                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('curso')}"  th:errors="*{curso}"></div>
-            </div>
+                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}"  th:errors="*{name}"></div>
+                </div>
 
-            <!-- matricula -->
-            <div class="form-group">
-                <label for="matriculaInput">Matrícula: </label>
-                <input readonly type="text" id="matriculaInput" class="form-control matriculaCinza" th:field="*{matricula}" placeholder="Clique em 'Gerar' para gerar a matrícula">
-              </div>
+                <!-- curso -->
+                <div class="form-group curso-group">
+                    <label for="cursoInput">Curso: </label>
+                    <select  id="cursoInput" class="cursoSelect" th:field="*{curso}">
+                        <option class="cursoOptions" th:each= " curso : ${cursos}"
+                                th:text="${curso}" th:value="${curso}">
+                        </option>
+                    </select>
+                    <!-- div de validacao. Só vai aparecer se o erro acontecer. -->
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('curso')}"  th:errors="*{curso}"></div>
+                </div>
 
-
-            <!-- status -->
-            <div class="form-group status-group">
-                <label for="statusInput">Status: </label>
-                <select id="statusInput" th:field="*{status}">
-                    <option class="zica" th:each=" status : ${statusBolado}"
-                            th:text="${status}" th:value="${status}"> </option>
-                </select>
-                <!-- div de validacao. Só vai aparecer se o erro acontecer. -->
-                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('status')}"  th:errors="*{status}"></div>
-            </div>
-
-            <!-- turno -->
-            <div class="form-group status-group">
-                <label for="turnoInput">Turno: </label>
-                <select id="turnoInput" th:field="*{turno}">
-                    <option th:each=" turno : ${turnos}"
-                            th:value="${turno}" th:text="${turno}"></option>
-                </select>
-                <!-- div de validacao. Só vai aparecer se o erro acontecer. -->
-                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('turno')}"  th:errors="*{turno}"></div>
-            </div>
+                <!-- matricula -->
+                <div class="form-group">
+                    <label for="matriculaInput">Matrícula: </label>
+                    <input readonly type="text" id="matriculaInput" class="form-control matriculaCinza" th:field="*{matricula}" placeholder="Clique em 'Gerar' para gerar a matrícula">
+                </div>
 
 
-            <div class="submitFormButtons">
-                <button type="submit" class="btn btn-success cadastrarButton">Editar</button>
-                <a th:href="@{/alunos}" class="btn btn-danger">Voltar</a>
-            </div>
+                <!-- status -->
+                <div class="form-group status-group">
+                    <label for="statusInput">Status: </label>
+                    <select id="statusInput" th:field="*{status}">
+                        <option class="zica" th:each=" status : ${statusBolado}"
+                                th:text="${status}" th:value="${status}"> </option>
+                    </select>
+                    <!-- div de validacao. Só vai aparecer se o erro acontecer. -->
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('status')}"  th:errors="*{status}"></div>
+                </div>
+
+                <!-- turno -->
+                <div class="form-group status-group">
+                    <label for="turnoInput">Turno: </label>
+                    <select id="turnoInput" th:field="*{turno}">
+                        <option th:each=" turno : ${turnos}"
+                                th:value="${turno}" th:text="${turno}"></option>
+                    </select>
+                    <!-- div de validacao. Só vai aparecer se o erro acontecer. -->
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('turno')}"  th:errors="*{turno}"></div>
+                </div>
 
 
-            <!-- footer -->
-            <footer th:replace="~{./fragments/fragments.html :: rodape}"></footer>
-          </form>
+                <div class="submitFormButtons">
+                    <button type="submit" class="btn btn-success cadastrarButton">Editar</button>
+                    <a th:href="@{/alunos}" class="btn btn-danger">Voltar</a>
+                </div>
 
 
+                <!-- footer -->
+                <footer th:replace="~{./fragments/fragments.html :: rodape}"></footer>
+            </form>
 
-    </div>
+        </div>
+
+        <!-- Modal - Procurar Alunos -->
+        <div th:replace="~{ ./fragments/fragments.html :: modalProcurarAlunos}"></div>
 
 
-    <!-- Modal - Procurar Alunos -->
-	<div th:replace="~{ ./fragments/fragments.html :: modalProcurarAlunos}"></div>
-
-
-
-    <!-- Scripts do Bootstrap and Jquery-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> 
-
-</body>
-    
+        <!-- Scripts do Bootstrap and Jquery-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> 
+    </body>
+</html>

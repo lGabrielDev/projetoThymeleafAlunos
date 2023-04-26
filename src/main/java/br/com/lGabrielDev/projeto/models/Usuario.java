@@ -22,8 +22,8 @@ import jakarta.validation.constraints.Size;
 
 public class Usuario {
     //attributes
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id //primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //auto_increment
     @Column(name = "id")
     Long id;
 

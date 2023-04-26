@@ -11,14 +11,17 @@ import br.com.lGabrielDev.projeto.repositories.AlunoRepository;
 
 @Service
 public class AlunoService {
+
     //attributes injetados
     @Autowired
     private AlunoRepository ar;
+
 
     // ************************** CREATE **************************
     public void cadastrar(Aluno a){
         this.ar.save(a);
     }
+
 
 
 
@@ -91,5 +94,4 @@ public class AlunoService {
             return false;
         }
     }
-
 }

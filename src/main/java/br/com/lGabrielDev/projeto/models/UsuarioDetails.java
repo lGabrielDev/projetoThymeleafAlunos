@@ -11,6 +11,7 @@ public class UsuarioDetails implements UserDetails {
     //attributes
     private Usuario usuario;
 
+    
     //constructors
     public UsuarioDetails(Usuario usuario){
         this.usuario = usuario;

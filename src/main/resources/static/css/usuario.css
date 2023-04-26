@@ -57,7 +57,6 @@ div.conteudo-bruto{
 
 
 
-
 div.conteudo-bruto .form-title,  form{
     width: 100%;
 }
@@ -81,6 +80,7 @@ form, .form-title{
     border: 2px solid #39254169;
 
 }
+
 
 /* submit login button */
 .botoesLogin{
@@ -119,8 +119,8 @@ form, .form-title{
     margin-bottom: 40px;
 }
 
-/* buttons - cadastrar e voltar */
 
+/* buttons - cadastrar e voltar */
 .botoesCadastro{
     display: flex;
     flex-direction: column;

@@ -10,6 +10,15 @@ public enum Curso {
     //attributes
     private String name;
 
+    public String getName() {
+        return name;
+    }
+
+    //getters and setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
     //constructors
     private Curso(String name){
         this.name = name;
