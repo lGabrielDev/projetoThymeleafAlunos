@@ -1,17 +1,104 @@
 <!-- Fragments -->
 
 
+<!-- Header - navigation bar - Hamburguer -->
+<header class="cabecalho_hamburguer" th:fragment="cabecalho_hamburguer">
+    <div class="collapse conteudoDentroDoHamburguer" id="navbarToggleExternalContent">
+        <div class="dentroHamburguer">
+            <!-- Links da nav bar -->
+            
+                <div class="linksPrincipaisHamburguer">
+                    <!-- Home -->
+                    <div class="homeLinkHamburguer linkHamburguer linkHamburguerMarginBottom">
+                        <a class="nav-item nav-link" th:href="@{/home}">
+                            <i class="fa-solid fa-house menuIcon hoverPurple"></i>
+                            <span class="hoverPurple">Home</span>
+                        </a>
+                    </div>
+                    
+
+                    <!-- Cadastrar -->
+                    <div class="cadastrarLinkHamburguer linkHamburguer linkHamburguerMarginBottom">
+                        <a class="nav-item nav-link" th:href="@{/cadastrar}">
+                            <i class="fa-sharp fa-solid fa-user-plus menuIcon hoverPurple"></i>
+                            <span class="hoverPurple">Cadastrar Aluno</span>
+                        </a>
+                    </div>
+                    
+
+                    <div class="pesquisarLinkHamburguer linkHamburguer">
+                        <!-- Pesquisar -->
+                        <button class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#modalPesquisarAluno">
+                            <i class="fa-solid fa-magnifying-glass menuIcon hoverPurple"></i>
+                            <span class="hoverPurple">Pesquisar Aluno</span>
+                        </button>  
+                    </div>
+                     
+                </div>
+                  
+                <div class="linkSairHamburguer">
+                    <!-- Sair -->
+                    <a class="nav-item btn btn-danger" th:href="@{/logout}">
+                        <i class="fa-solid fa-circle-xmark menuIcon" style="color: #c2d4de;"></i>
+                        <span>Sair</span>
+                    </a>
+                </div>
+
+        </div>				
+    </div>	
+        <nav class="navbar navPrincipal navPrincipalHamburguer">
+            
+            <div class="conteudoNavigationHamburguer"> 
+
+                <!-- Hamburguer button open -->
+                <div class="hamburguer_button_open">
+                    <button class="navbar-toggler hamburguerIconBorda" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars hamburguerIconColor"></i>
+                    </button>                
+                </div>
+
+
+                <div class="logo_and_boasVindas">
+                    <!-- Mensagem boas vindas! -->
+                    <div class="divBoasssVindas">
+                        <h2 class="boasVindasHamburguer" style="font-size: 16px;">Bem Vindo(a), <span th:text="${usuarioLogado.getPrincipal().getUsername()}"></span>!</h2>
+                    </div>
+
+
+                    <!-- Icon image - chapeuzinho -->
+                    <div class="logo">
+                        <a class="navbar-brand divlogoHome" th:href="@{/home}">
+                            <img src="/./img/logo_chapeu.png" alt="home page logo icon" width="36px">
+                        </a>
+                    </div>
+                </div>
+               
+            </div>
+      </nav>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Header - navigation bar -->
-<header th:fragment="cabecalho">
+<header class="cabecalho_normal" th:fragment="cabecalho">    
     <nav class="navbar navbar-expand-lg justify-content-between navPrincipal">
-        
         <!-- Logo da página. Ao clicar, redireciona para a página home -->
         <div class="logo">
             <a class="navbar-brand" th:href="@{/home}">
                 <img src="/./img/logo_chapeu.png" alt="home page logo icon" width="46px">
             </a>
         </div>
-
 
         <!-- Mensagem boas vindas! -->
         <div class="divBoasVindas">
@@ -20,7 +107,6 @@
 
         <!-- Links da nav bar -->
         <ul class="nav justify-content-start justify-content-center linksPrincipais">
-
             <!-- Home -->
             <a class="nav-item nav-link" th:href="@{/home}">
                 <i class="fa-solid fa-house menuIcon" style="color: #c2d4de;"></i>
@@ -45,8 +131,16 @@
                 <span>Sair</span>
             </a>
         </ul>
+        
     </nav>
 </header>
+
+
+
+
+
+
+
 
 
 

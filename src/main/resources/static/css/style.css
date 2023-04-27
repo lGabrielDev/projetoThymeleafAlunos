@@ -36,6 +36,7 @@ body{
 
 
 
+
 .nav-item {
     color: var(--lightPurple);
     font-weight: bold;
@@ -466,11 +467,7 @@ div.card > a{
 
 
 
-/* **************************** Responsividade 1366 x 768 ****************************/
-
-
-
-
+/* **************************** Responsividade 1366 x 768 --> Monitor pequeno ****************************/
 /************* HOME PAGE *************/
 
 /* navigation bar */
@@ -549,5 +546,150 @@ div.card > a{
 
 
 
-/************* Formulário Editar *************/
+
+
+
+/* **************************** Responsividade 393 x 851 --> Celular ****************************/
+
+/**************** Home Page *****************/
+
+.navPrincipalHamburguer{
+    width: 100%;
+    color: var(--darkPurple);
+}
+
+
+.conteudoNavigationHamburguer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: var(--darkPurple);
+}
+
+
+.logo_and_boasVindas{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.hamburguer_button_open{
+    margin-left: 11px;
+    position: relative;
+    bottom: 3px;
+}
+
+
+.logo_and_boasVindas .divBoasssVindas{
+    position: relative;
+    top: 8px;
+    right: 10px;
+}
+
+
+/* Imagem logo - chapeuzinho */
+.divlogoHome{
+    position: relative;
+    bottom: 2px;
+    right: 5px;
+}
+
+
+/* Conteudo dentro do hamburguer */
+.conteudoDentroDoHamburguer > .dentroHamburguer {
+    background-color: #885952
+}
+
+/* Botao de hamburguer */
+i.hamburguerIconColor{
+    color: var(--lightBlue);
+}
+
+.hamburguerIconBorda{
+    background-color: var(--darkPurple);
+    border: 2px solid var(--lightBlue);
+}
+
+
+
+
+/* Links de dentro do hamburguer */
+.dentroHamburguer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 17px;
+}
+
+
+/* Links principais - O link "Sair" não está aqui */
+.linksPrincipaisHamburguer{
+    display: flex;
+    flex-direction: column;
+}
+
+.linkHamburguer{
+    height: 40px;
+}
+
+.linkHamburguerMarginBottom{
+    margin-bottom: 10px;
+}
+
+.nav-link > span:hover{
+    color: var(--darkPurple);
+}
+
+/* removendo o header padrao, para aparecer apenas o header hamburguer */
+@media screen and (min-width: 200px) and (max-width: 835px){
+    .cabecalho_normal{
+        display: none;
+    }
+    
+    .cabecalho_hamburguer{
+        display: block;
+    }    
+
+
+    .body-background{
+        width: 100%;
+    }
+
+
+
+    .main-content{
+        width: 100%;
+    }
+
+
+    /* Botoes centrais - "Cadastrar" e "Encontrar" */
+    .buttons{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buttons .button{
+        margin-bottom: 23px;
+    }
+
+
+
+}
+
+
+@media screen and (min-width:836px){
+    .cabecalho_hamburguer{
+        display: none;
+    }
+
+    .cabecalho_normal{
+        display: block;
+    }
+}
+
+
+
 
