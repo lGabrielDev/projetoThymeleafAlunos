@@ -120,6 +120,7 @@ form, .form-title{
     margin-top: 15px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 5px; 
 }
 
 .cadastrarButton{
@@ -163,5 +164,21 @@ button.cadastrarButton{
     .conteudo-principal{
         min-width:80%;
         margin: 20px;
+    }
+
+    .bodyTotal .form-title{
+        padding: 0px;
+    }
+
+    .bodyTotal form.formulario{
+        padding: 0px;
+    }
+
+    .bodyTotal div.conteudo-bruto{
+        margin: 12px;
+    }
+
+    .conteudo-bruto > .formularioCadastro{
+        margin-bottom: 0;
     }
 }

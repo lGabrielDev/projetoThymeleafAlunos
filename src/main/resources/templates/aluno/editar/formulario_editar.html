@@ -19,8 +19,14 @@
     </head>
 
     <body>
-        <!-- Navigation bar / cabeçalho -->
-        <div th:replace="~{./fragments/fragments.html :: cabecalho}"></div>
+
+
+        <!-- Header - navigation bar - Hamburguer -->
+        <div th:replace="~{ ./fragments/fragments.html :: cabecalho_hamburguer}"></div>
+
+        <!-- Header - navigation bar -->
+        <div th:replace="~{ ./fragments/fragments.html :: cabecalho}"></div>
+
 
         <!-- Conteúdo principal -->
         <div class="paginaInteira">
