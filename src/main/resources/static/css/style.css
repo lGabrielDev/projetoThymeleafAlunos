@@ -552,7 +552,6 @@ div.card > a{
 /* **************************** Responsividade 393 x 851 --> Celular ****************************/
 
 /**************** Home Page *****************/
-
 .navPrincipalHamburguer{
     width: 100%;
     color: var(--darkPurple);
@@ -692,4 +691,21 @@ i.hamburguerIconColor{
 
 
 
+
+/**************** Register Page *****************/
+@media screen and (max-width:835px){
+    div.paginaInteira{
+        height: 100%;
+    }
+
+    form.conteudo_formulario{
+        min-width: 95%;
+        padding: 20px;
+    } 
+
+    form.conteudo_formulario div.turno-group{
+        margin-bottom: 65px;
+    }
+
+}
 
