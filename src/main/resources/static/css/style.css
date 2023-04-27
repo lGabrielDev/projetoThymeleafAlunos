@@ -24,6 +24,7 @@ body{
 
 
 
+/**************************** HOME PAGE ****************************/
 
 /* ********** NAVIGATION BAR ********** */
 .navPrincipal{
@@ -32,6 +33,8 @@ body{
     position: relative;
     z-index: 1;
 }
+
+
 
 .nav-item {
     color: var(--lightPurple);
@@ -48,6 +51,8 @@ body{
     margin-right: 9px;
     font-size: 16px;
 }
+
+
 
 
 /* logo */
@@ -72,6 +77,11 @@ i.menuIcon{
 
 
 
+
+
+
+
+
 /* ********** BODY - conteudo principal ********** */
 .body-background{
     height: 94%;
@@ -87,6 +97,7 @@ i.menuIcon{
     align-items: center;
     
 }
+
 
 
 
@@ -166,12 +177,35 @@ footer{
     height: 26px;
 }
 
+
+/* footer responsividade */
+@media screen  and (max-width:1366px) {
+
+    body{
+        position: relative;
+    }
+
+   footer{
+      position: absolute;
+      bottom: -1;
+   }
+}
+
+
+
+
+
+
 footer > div.footer{
     background-color: var(--darkPurple);
     color: var(--lightBlue);
     
     text-align: center;
 }
+
+
+
+
 
 
 /* responsividade */
@@ -189,13 +223,21 @@ footer > div.footer{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height: 100%;
+    width: 100%;
 }
+
+
 
 
 .conteudo_formulario{
     width: 30%;
     margin-top: 40px;
 }
+
+
+
+
 
 .formulario_cadastro_title{
     text-align: center;
@@ -431,3 +473,60 @@ div.card > a{
     align-self: flex-start;
     margin-bottom: -20px;
 }
+
+
+
+
+
+
+/* **************************** Responsividade 1366 x 768 ****************************/
+
+
+
+
+/************* HOME PAGE *************/
+
+/* navigation bar */
+@media screen and (max-width: 1366px){
+    .linksPrincipais{
+        margin-right: 5px;
+    }
+}
+
+@media screen and (max-width:1366px){
+    .body-background{
+        height: 93%;
+        width: 100%;
+    }
+
+}
+
+
+
+/************* Formulário Cadastro *************/
+@media screen and (max-width:1366px){
+    .body{
+        height: 100%;
+        width: 100%;
+    }
+
+    .paginaInteira{
+        height: 92%;
+        border: 2px solid blue;
+    }
+
+    .conteudo_formulario{
+        height: 70%;
+        width: 52%;
+        margin-top: 17px;
+        margin-bottom: 20px;
+        border: 2px solid tomato;
+        
+    }
+
+    form.conteudo_formulario > div{
+        margin-top: 12px;
+    }
+}
+
+
