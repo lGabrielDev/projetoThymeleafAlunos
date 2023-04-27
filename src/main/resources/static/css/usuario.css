@@ -36,7 +36,7 @@ div.bodyTotal{
 
 div.conteudo-principal{
     min-height: 366px;
-    min-width: 529px;
+    max-width: 529px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,6 +97,22 @@ form, .form-title{
 
 
 
+/* *******************************  Responsividade Celular - 393 x 851  ******************************* */
+@media screen and (max-width:558px) {
+    .conteudo-principal{
+        min-width:80%;
+        margin: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 /* *******************************  Register User Page  ******************************* */
 
@@ -139,4 +155,13 @@ button.cadastrarButton{
     width: 50%;
     background-color: #9882d8d2;
     border: 1px solid var(--darkPurple);
+}
+
+
+/* *******************************  Responsividade Celular - 393 x 851  ******************************* */
+@media screen and (max-width:558px) {
+    .conteudo-principal{
+        min-width:80%;
+        margin: 20px;
+    }
 }
