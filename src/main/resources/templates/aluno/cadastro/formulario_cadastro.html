@@ -20,11 +20,14 @@
 
     <body>
 
+        <!-- Header - navigation bar - Hamburguer -->
+        <div th:replace="~{ ./fragments/fragments.html :: cabecalho_hamburguer}"></div>
 
-        <!-- Navigation bar / cabeçalho -->
-        <header th:replace="~{./fragments/fragments.html :: cabecalho}"></header>
+        <!-- Header - navigation bar -->
+        <div th:replace="~{ ./fragments/fragments.html :: cabecalho}"></div>
 
 
+        
         <!-- Conteúdo principal -->
         <div class="paginaInteira">
             <form class="conteudo_formulario" action="/cadastrar" method="post" th:object="${aluno}">

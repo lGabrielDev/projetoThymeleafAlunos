@@ -416,10 +416,14 @@ div.cards{
     flex-direction: row;
 }
 
+
 div.card{
     margin-right: 30px;
     margin-bottom: 20px;
+    max-width: 18em;
 }
+
+
 
 div.alinharBotoesPesquisa{
     margin-top: 23px;
@@ -705,6 +709,51 @@ i.hamburguerIconColor{
 
     form.conteudo_formulario div.turno-group{
         margin-bottom: 65px;
+    }
+
+
+
+
+
+
+
+    /**************** Pagina de Pesquisas *****************/
+    @media screen and (max-width:770px){
+        .pesquisasMainContent{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 90%;
+        }
+
+
+
+        .pesquisasMainContent .cards{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin: 0px;
+        }
+
+        div.card{
+            margin-right: 0px;
+            margin-bottom: 35px;
+            max-width: 97%;
+        }
+
+
+
+        /* Separando input do "Pesquisar Button" */
+        div.pesquisasMainContent form.formularioPesquisa{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .searchInput{
+            max-width: 65%;
+        }
     }
 
 }

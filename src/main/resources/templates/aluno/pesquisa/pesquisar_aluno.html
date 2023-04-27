@@ -19,8 +19,13 @@
     </head>
 
     <body>
-        <!-- Navigation bar / cabeçalho -->
-        <div th:replace="~{./fragments/fragments.html :: cabecalho}"></div>
+       
+        <!-- Header - navigation bar - Hamburguer -->
+        <div th:replace="~{ ./fragments/fragments.html :: cabecalho_hamburguer}"></div>
+
+        <!-- Header - navigation bar -->
+        <div th:replace="~{ ./fragments/fragments.html :: cabecalho}"></div>
+
 
         <!-- main content -->
         <div class="container pesquisasMainContent">
@@ -30,7 +35,7 @@
             <!-- Search Button para procurar Alunos -->
             <form action="/alunos/pesquisas" method="post" class="formularioPesquisa" th:object="${aluno}">
                 <div class="input-group searchInput">
-                    <input class="form-control" type="text" id="inputNameProcurado" placeholder="Digite o nome do aluno que deseja consultar..." th:field="*{name}">
+                    <input class="form-control" type="text" id="inputNameProcurado" placeholder="Digite o nome do aluno..." th:field="*{name}">
                 </div>
 
                 <div class="searchButton">
@@ -45,7 +50,7 @@
             <div class="cards">
 
                 <!-- Card - alunos ativos -->
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <a th:href="@{/alunos-ativos}">
                         <img class="card-img-top" src="/img/alunos_ativos.jpg" alt="Card image">
                     </a>
@@ -61,7 +66,7 @@
 
 
                 <!-- Card - alunos inativos -->
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <a th:href="@{/alunos-inativos}">
                         <img class="card-img-top" src="/img/alunos_inativos.jpg" alt="Card image">
                     </a>
@@ -77,7 +82,7 @@
 
 
                 <!-- Card - alunos cancelados -->
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <a th:href="@{/alunos-cancelados}">
                         <img class="card-img-top" src="/img/alunos_cancelados.jpg" alt="Card image">
                     </a>
