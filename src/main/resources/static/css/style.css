@@ -313,6 +313,17 @@ option{
 
 
 /**************************** página para listar todos os alunos ****************************/
+/* Icones de editar e deletar - lixeira e caderninho */
+.iconEditarPaginaPadrao{
+    display: block;
+}
+
+.iconEditarPaginaCelular{
+    display: none;
+}
+
+
+
 .container_table{
     display: flex;
     flex-direction: column;
@@ -357,7 +368,6 @@ td{
 .td_acao > a.buttonEditar{
     margin-right: 15px;
 }
-
 
 
 
@@ -698,6 +708,7 @@ i.hamburguerIconColor{
 
 /**************** Register Page *****************/
 @media screen and (max-width:835px){
+    
     div.paginaInteira{
         height: 100%;
     }
@@ -718,6 +729,12 @@ i.hamburguerIconColor{
 
 
     /**************** Pagina de Pesquisas *****************/
+    
+    /* Icon para display CELULAR */
+    i.iconEditarPaginaCelular{
+        display: none;
+    }
+
     @media screen and (max-width:770px){
         .pesquisasMainContent{
             display: flex;
@@ -755,6 +772,104 @@ i.hamburguerIconColor{
             max-width: 65%;
         }
     }
+
+
+
+
+
+
+
+    /**************** Pagina de Listar Alunos *****************/
+    @media screen and (max-width:770px) {
+        .container_table{
+            width: 98%;
+        }
+
+
+
+        .buttonEditar, .buttonDeletar{
+            width: 9px;
+            height: 9px;
+            margin-top: 2px;
+        }
+
+
+
+        .textoButton{
+            display: none;
+        }
+
+
+
+        th{
+            font-size: 10px;
+            text-align: center;
+         
+        }
+
+
+        td{
+            font-size: 5px;
+            height: 30px;
+        }
+
+      
+        .td_acao_width{
+            max-width: 57px;
+            margin-right: -27px;
+        }
+
+
+
+        td.td_font_size, td.td_acao{
+            font-size: 10px;
+            padding: 3px;
+        }
+
+        .th_acao{
+            width: 57px;
+            margin-right: 0;
+            
+        }
+
+
+        td.td_matricula_padding{
+            padding-left: 3px;
+        }
+        
+
+
+
+
+        /* escondendo icone de editar e da lixeira */
+        .editarSpan , .excluirSpan{
+            display: none;
+        }
+
+
+        a.buttonEditar, a.buttonDeletar{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 5px;
+        }
+
+
+
+        .td_acao > a.buttonEditar{
+            margin-right: 3px;
+        }
+
+
+        i.editarIconPequeno{
+            font-size: 8px;
+        }
+
+        
+
+    }
+    
 
 }
 

@@ -19,8 +19,12 @@
     </head>
 
     <body>
-        <!-- navigation bar - cabecalho -->
-        <header th:replace="~{./fragments/fragments.html :: cabecalho}"></header>
+        
+        <!-- Header - navigation bar - Hamburguer -->
+		<div th:replace="~{ ./fragments/fragments.html :: cabecalho_hamburguer}"></div>
+
+		<!-- Header - navigation bar -->
+		<div th:replace="~{ ./fragments/fragments.html :: cabecalho}"></div>
 
         <!-- todo o conteudo -->
         <div class="container container_table">
@@ -56,21 +60,21 @@
 
                 <tbody>
                     <tr th:each=" aluno : ${listaAlunos}">
-                        <td class="td_id" th:text="${aluno.getId()}">dado</td>
-                        <td th:text="${aluno.getName()}">dado</td>
-                        <td th:text="${aluno.getCurso()}">dado</td>
-                        <td th:text="${aluno.getMatricula()}">dado</td>
-                        <td th:text="${aluno.getStatus()}">dado</td>
-                        <td th:text="${aluno.getTurno()}">dado</td>
-                        <td class="td_acao">
+                        <td class="td_id td_font_size" th:text="${aluno.getId()}">dado</td>
+                        <td class="td_font_size" th:text="${aluno.getName()}">dado</td>
+                        <td class="td_font_size" th:text="${aluno.getCurso()}">dado</td>
+                        <td class="td_font_size td_matricula_padding" th:text="${aluno.getMatricula()}">dado</td>
+                        <td class="td_font_size" th:text="${aluno.getStatus()}">dado</td>
+                        <td class="td_font_size" th:text="${aluno.getTurno()}">dado</td>
+                        <td class="td_acao td_acao_width td_font_size">
                             <a th:href="@{/alunos/{id} (id = ${aluno.getId()})} " class="btn btn-primary buttonEditar">
-                                <i class="fa-sharp fa-solid fa-pen-to-square" style="color: #C2D4DE";></i>
-                                Editar
+                                <i class="fa-sharp fa-solid fa-pen-to-square editarIconPequeno" style="color: #C2D4DE";></i>
+                                <span class="editarSpan">Editar</span>
                             </a>
 
                             <a th:href="@{/alunos/excluir/{id} (id = ${aluno.getId()}) }" class="btn btn-danger buttonDeletar">
-                                <i class="fa-solid fa-trash" style="color: #C2D4DE;"></i>
-                                Excluir
+                                <i class="fa-solid fa-trash iconDeletarButton editarIconPequeno" style="color: #C2D4DE;"></i>
+                                <span class="excluirSpan">Excluir</span>
                             </a>
                         </td>
                     </tr>
