@@ -886,12 +886,11 @@ i.hamburguerIconColor{
 /* **************************** Responsividade 851 x 393 --> Celular Landscape ****************************/
 
 /* ***** HOME PAGE ***** */
-@media screen and (orientation:landscape) and (min-width:817px) and (max-width:830px){
+@media screen and (orientation:landscape) and (min-width:700px) and (max-width:900px){
     div.main-content{
-        width: 100%;
-        padding: 0px;
-        margin-top: -69px;
-    
+        padding: 0;
+        width: 82%;
+        max-height: 93%;
     }
 
 
@@ -902,6 +901,10 @@ i.hamburguerIconColor{
         padding-bottom: 6px;
     }
 
+
+    .homeTitle{
+        margin-top: 71px;
+    }
 
 
 
@@ -960,5 +963,10 @@ i.hamburguerIconColor{
 
     .th_acao{
         width: 14%;
+    }
+
+
+    .buttonEditar{
+        
     }
 }
