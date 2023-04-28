@@ -36,6 +36,7 @@ div.bodyTotal{
 
 div.conteudo-principal{
     min-height: 366px;
+    max-width: 100%;
     max-width: 529px;
     display: flex;
     flex-direction: column;
@@ -181,4 +182,18 @@ button.cadastrarButton{
     .conteudo-bruto > .formularioCadastro{
         margin-bottom: 0;
     }
+}
+
+
+
+/* *******************************  Responsividade Celular - 851 x 393 - Landscape ******************************* */
+
+@media screen and (orientation:landscape) and (min-width:817px) and (max-width:830px) {
+    
+
+    body{
+        height: fit-content;
+    }
+
+
 }

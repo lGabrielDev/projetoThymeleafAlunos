@@ -690,6 +690,10 @@ i.hamburguerIconColor{
 
 
 
+    .spanFooter{
+        font-size: 0.7em;
+    }
+
 }
 
 
@@ -789,11 +793,14 @@ i.hamburguerIconColor{
 
         .buttonEditar, .buttonDeletar{
             width: 9px;
-            height: 9px;
+            height: 20px;
             margin-top: 2px;
         }
 
 
+        .buttonEditar{
+            margin-right: 3px;
+        }
 
         .textoButton{
             display: none;
@@ -810,19 +817,23 @@ i.hamburguerIconColor{
 
         td{
             font-size: 5px;
-            height: 30px;
+            min-height: 55px;
         }
 
       
+        /* ultimo td da table */
         .td_acao_width{
-            max-width: 54.5px;
+            max-width: 56px;
             margin-right: -27px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
         }
 
 
 
         td.td_font_size, td.td_acao{
-            font-size: 10px;
+            font-size: 9px;
             padding: 3px;
         }
 
@@ -865,11 +876,89 @@ i.hamburguerIconColor{
         i.editarIconPequeno{
             font-size: 8px;
         }
-
-        
-
     }
-    
 
 }
 
+
+
+
+/* **************************** Responsividade 851 x 393 --> Celular Landscape ****************************/
+
+/* ***** HOME PAGE ***** */
+@media screen and (orientation:landscape) and (min-width:817px) and (max-width:830px){
+    div.main-content{
+        width: 100%;
+        padding: 0px;
+        margin-top: -69px;
+    
+    }
+
+
+
+    div.main-content h1{
+        color: white;
+        font-weight: bold;
+        padding-bottom: 6px;
+    }
+
+
+
+
+    /* ***** Página pesquisas ***** */
+
+    /* formulario - pesquisar por aluno */
+    div.pesquisasMainContent form.formularioPesquisa{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+
+    /* cards */
+    .cards{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    div.card{
+        margin-right: 1px;
+        margin-bottom: 0;
+        max-width: 31%;
+        font-size: 0.8em;
+    }
+
+
+
+
+    /* ***** Página listar alunos ***** */
+
+    .excluirSpan, .editarSpan{
+        display: none;
+    }
+
+
+    .td_acao_width{
+        display: flex;
+        flex-direction: row;
+        margin-right: -0;
+        display: flex;
+        justify-content: space-between;
+        min-height: 50px;
+    }
+
+
+    .container_table{
+        max-width: 771px;
+    }
+
+
+    table{
+        max-width: 97%;
+    }
+
+    .th_acao{
+        width: 14%;
+    }
+}

@@ -60,13 +60,13 @@
 
                 <tbody>
                     <tr th:each=" aluno : ${listaAlunos}">
-                        <td class="td_id td_font_size" th:text="${aluno.getId()}">dado</td>
-                        <td class="td_font_size" th:text="${aluno.getName()}">dado</td>
-                        <td class="td_font_size" th:text="${aluno.getCurso()}">dado</td>
-                        <td class="td_font_size td_matricula_padding" th:text="${aluno.getMatricula()}">dado</td>
-                        <td class="td_font_size" th:text="${aluno.getStatus()}">dado</td>
-                        <td class="td_font_size" th:text="${aluno.getTurno()}">dado</td>
-                        <td class="td_acao td_acao_width td_font_size">
+                        <td class="td_id td_font_size" th:text="${aluno.getId()}"><span class="td_dado_span">dado</span></td>
+                        <td class="td_font_size" th:text="${aluno.getName()}"><span class="td_dado_span">dado</span></td>
+                        <td class="td_font_size" th:text="${aluno.getCurso()}"><span class="td_dado_span">dado</span></td>
+                        <td class="td_font_size td_matricula_padding" th:text="${aluno.getMatricula()}"><span class="td_dado_span">dado</span></td>
+                        <td class="td_font_size" th:text="${aluno.getStatus()}"><span class="td_dado_span">dado</span></td>
+                        <td class="td_font_size" th:text="${aluno.getTurno()}"><span class="td_dado_span">dado</span></td>
+                        <td class="td_acao_width td_font_size">
                             <a th:href="@{/alunos/{id} (id = ${aluno.getId()})} " class="btn btn-primary buttonEditar">
                                 <i class="fa-sharp fa-solid fa-pen-to-square editarIconPequeno" style="color: #C2D4DE";></i>
                                 <span class="editarSpan">Editar</span>
