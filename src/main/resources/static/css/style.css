@@ -357,18 +357,22 @@ td{
 
 .th_acao{
     text-align: center;
+    width: 19%;
 }
 
-.td_acao{
+.td_acao_width{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .td_acao > a.buttonEditar{
     margin-right: 15px;
 }
 
+.buttonDeletar{
+    margin-left: 2px;
+}
 
 
 /**************************** formulario para editar um aluno ****************************/
@@ -965,8 +969,4 @@ i.hamburguerIconColor{
         width: 14%;
     }
 
-
-    .buttonEditar{
-        
-    }
 }
