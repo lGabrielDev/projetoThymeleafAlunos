@@ -15,7 +15,9 @@ Contextualizando, aqui temos uma aplicação de gerenciamente de "Alunos". O res
 
 <br>
 
-### Imagens da apicação:
+### Imagens do projeto
+
+<br>
 
 #### Login Authentication
 
@@ -25,11 +27,14 @@ Contextualizando, aqui temos uma aplicação de gerenciamente de "Alunos". O res
 
 #### Home Page
 
-<img src="./img_readme/home_page.png" alt="project image example" width="800px">
+<div>
+    <img src="./img_readme/home_page.png" alt="project image example" style="width:800px; margin-right:60px">
+</div>
+
 
 <br>
 
-#### Listagem de alunos
+#### Listagem dos alunos
 
 <img src="./img_readme/lista_alunos.png" alt="project image example" width="800px">
 
@@ -39,6 +44,23 @@ Contextualizando, aqui temos uma aplicação de gerenciamente de "Alunos". O res
 
 <img src="./img_readme/validation_example.png" alt="project image example" width="800px">
 
+<br>
+<br>
+
+
+
+
+
+#### Smartphone Home Page
+
+<div>
+    <img src="./img_readme/home_page_celular.png" alt="project image example" style= "width:400px">
+</div>
+
+<i>O projeto possui responsividade para smartphones</i>
+    
+
+<br>
 <br>
 
 Além das tecnologias citadas acima, foram utilizadas também outras tecnologias:
@@ -56,8 +78,8 @@ Além das tecnologias citadas acima, foram utilizadas também outras tecnologias
 
 
 - [Java](https://www.oracle.com/java/technologies/downloads/)
-- [Maven](https://maven.apache.org/download.cgi)
 - [Spring Boot](https://spring.io/projects/spring-boot)
+- [Maven](https://maven.apache.org/download.cgi)
 - [Thymeleaf](https://www.thymeleaf.org/)
 - [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
 - [Spring Security](https://docs.spring.io/spring-security/reference/index.html)
@@ -127,6 +149,11 @@ spring.jpa.show-sql=true
     ```
 
 2. Rode a aplicação e acesse a rota `http://localhost:8080/`
+
+<br>
+
+
+A aplicação também foi hospedada no **railway**. Para acessá-la clique [aqui](http://gerenciamentoalunos.up.railway.app)  .
 
 <hr>
 <br>
